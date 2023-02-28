@@ -16,6 +16,7 @@ const MainContent = () => {
 
             <UnauthenticatedTemplate>
                 <Home></Home> 
+                {/* <Routes></Routes> */}
             </UnauthenticatedTemplate>
         </div>
     );

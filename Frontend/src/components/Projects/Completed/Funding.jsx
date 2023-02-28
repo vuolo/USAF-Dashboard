@@ -3,6 +3,7 @@ import {Card, Col, Container, Row, Tabs, Tab} from 'react-bootstrap';
 import BarGraph from '../../BarGraph';
 import LineGraph from '../../LineGraph';
 import axios from 'axios';
+import date from 'date-and-time';
 import { useLocation } from 'react-router-dom';
 import {ObligationFundingDataTable, ExpenditureFundingDataTable} from '../Awarded/FundingDataTable';
 import {ApprovedFundingTable} from '../ApprovedFundingTable';
@@ -15,7 +16,7 @@ export const Funding = (props) => {
     const [isLoading4, setLoading4] = useState(true);
     const [expen_data, setExpenData] = useState();
     const [obligation_data, setObligationData] = useState();
-    const [approved_data, setApprovedData] = useState();
+    const [approved_data, setApprovedData] = useState();    
     const [est_data, setEstData] = useState();
     
     const location = useLocation();
@@ -72,7 +73,7 @@ export const Funding = (props) => {
             temp["Actual Total"] = info["Actual Total"];
             temp.Projected = info.Projected;
             temp["Projected Total"] = info["Projected Total"];
-            temp.date = format(new Date(info.date), 'MM/dd/yyyy');
+            temp.date = date.format(new Date(info.date), 'MM/dd/yyyy');
             retVal.push(temp);
             temp = {};
         })
